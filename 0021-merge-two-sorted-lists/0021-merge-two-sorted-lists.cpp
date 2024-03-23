@@ -11,13 +11,15 @@
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-        if(list1 == nullptr) return list2;
-        if(list2 == nullptr) return list1;
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        if(list1 == NULL) return list2;
+        if(list2 == NULL) return list1;
         
         ListNode* dummy = new ListNode(0);
         ListNode* current = dummy;
         
-        while(list1 != nullptr && list2 != nullptr) {
+        while(list1 != NULL && list2 != NULL) {
             if(list1->val <= list2->val) {
                 current->next = list1;
                 list1 = list1->next;
@@ -27,8 +29,8 @@ public:
             }
             current = current->next;
         }
-        if(list1 != nullptr) current->next = list1;
-        if(list2 != nullptr) current->next = list2;
+        if(list1 != NULL) current->next = list1;
+        if(list2 != NULL) current->next = list2;
         
         return dummy->next;
     }
