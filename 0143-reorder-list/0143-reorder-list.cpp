@@ -32,6 +32,8 @@ public:
         return prev;
     }
     void reorderList(ListNode* head) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
         if (head == nullptr || head->next == nullptr) return;
         
         ListNode* middle = findmiddle(head);
