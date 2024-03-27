@@ -1,6 +1,8 @@
 class Solution {
 public:
     int maxProduct(vector<int>& nums) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
     int pre = 1, suf = 1;
     int ans = INT_MIN;
     int n = nums.size();
