@@ -3,14 +3,14 @@ public:
     int arrangeCoins(int n) {
         ios_base::sync_with_stdio(false);
         cin.tie(NULL);
-        if(n==0) return 0;
-        int k=0;
+        if(n==1) return 1;
+        //int k=0;
         int tot=1;
-        while(n>=0){
+        while(n>=tot){
             n=n-tot;
             tot++;
-            k++;
+            //k++;
         }
-        return k-1;
+        return tot-1;
     }
 };
