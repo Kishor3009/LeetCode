@@ -1,6 +1,8 @@
 class Solution {
 public:
     int numUniqueEmails(vector<string>& emails) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
         int n=emails.size();
         unordered_set<string>st;
         for(auto mail:emails){
