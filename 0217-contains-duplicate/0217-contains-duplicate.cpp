@@ -6,11 +6,11 @@ public:
         unordered_map<int, int> mpp;
         for (int num : nums) {
             if (mpp[num] >= 1) {
-                return true; // Found a duplicate
+                return true; 
             } else {
                 mpp[num]++;
             }
         }
-        return false; // No duplicates found
+        return false; 
     }
 };
