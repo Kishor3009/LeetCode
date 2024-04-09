@@ -1,6 +1,8 @@
 class Solution {
 public:
     int timeRequiredToBuy(vector<int>& tickets, int k) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
         int n=tickets.size();
         int t=0;
         while(tickets[k]>0){
