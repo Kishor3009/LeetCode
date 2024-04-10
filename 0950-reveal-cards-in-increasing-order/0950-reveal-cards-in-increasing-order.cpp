@@ -1,6 +1,8 @@
 class Solution {
 public:
     vector<int> deckRevealedIncreasing(vector<int>& deck) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
         sort(deck.begin(), deck.end()); 
         int n = deck.size();
         vector<int> result(n);
