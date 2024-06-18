@@ -1,6 +1,8 @@
 class Solution {
 public:
     int maxProfitAssignment(vector<int>& difficulty, vector<int>& profit, vector<int>& worker) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
         vector<pair<int, int>> jobs;
         int m = difficulty.size();
         
