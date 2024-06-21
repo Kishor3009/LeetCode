@@ -1,6 +1,8 @@
 class Solution {
 public:
     int maxSatisfied(vector<int>& customers, vector<int>& grumpy, int minutes) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
         int n=customers.size();
         int sum=0, k=minutes;
         if(k>=n){
