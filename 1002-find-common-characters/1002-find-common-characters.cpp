@@ -13,11 +13,11 @@ public:
             }
         }
 
-        vector<std::string> result;
+        vector<string> result;
         for (int i = 0; i < 26; ++i) {
             if (minFreq[i] != INT_MAX && minFreq[i] > 0) {
                 for (int j = 0; j < minFreq[i]; ++j) {
-                    result.push_back(std::string(1, 'a' + i));
+                    result.push_back(string(1, 'a' + i));
                 }
             }
         }
