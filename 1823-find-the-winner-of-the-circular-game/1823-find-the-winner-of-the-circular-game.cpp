@@ -1,6 +1,8 @@
 class Solution {
 public:
     int findTheWinner(int n, int k) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
         deque<int>d;
         for(int i=0;i<n;i++){
             d.push_back(i+1);
