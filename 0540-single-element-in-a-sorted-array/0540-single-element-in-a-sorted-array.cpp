@@ -10,14 +10,12 @@ public:
 
     while (l <= h) {
         int m = l + (h - l) / 2;
-
-        // Check if m is the single element
-        if ((m == 0 || nums[m] != nums[m - 1]) && (m == n - 1 || nums[m] != nums[m + 1])) {
+        if ((m == 0 || nums[m] != nums[m - 1]) && 
+            (m == n - 1 || nums[m] != nums[m + 1])) {
             return nums[m];
         }
-
-        // Determine which side to search
-        if ((m % 2 == 1 && nums[m] == nums[m - 1]) || (m % 2 == 0 && nums[m] == nums[m + 1])) {
+        if ((m % 2 == 1 && nums[m] == nums[m - 1]) || 
+            (m % 2 == 0 && nums[m] == nums[m + 1]))         {
             l = m + 1;
         } else {
             h = m - 1;
