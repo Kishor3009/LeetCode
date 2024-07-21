@@ -12,30 +12,39 @@
 class Solution {
 public:
     vector<vector<int>> verticalTraversal(TreeNode* root) {
-        map<int, map<int,multiset<int>>>nodes;
-        queue<pair<TreeNode* , pair<int,int>>>todo;
-        todo.push({root,{0,0}});
-        while(!todo.empty()){
-            auto p=todo.front();
-            todo.pop();
-            TreeNode* node=p.first;
-            int x=p.second.first, y=p.second.second;
-            nodes[x][y].insert(node->val);
-            if(node->left){
-                todo.push({node->left, {x-1,y+1}});
-            }
-            if(node->right){
-                todo.push({node->right, {x+1,y+1}});
-            }
-        }
-        vector<vector<int>>ans;
-        for(auto p:nodes){
-            vector<int>col;
-            for(auto q:p.second){
-                col.insert(col.end(),q.second.begin(),q.second.end());
-            }
-            ans.push_back(col);
-        }
-        return ans;
+    map<int, vector<pair<int, int>>> mp; // horizontal distance -> (level, value)
+    vector<vector<int>> ans;
+    queue<pair<TreeNode*, pair<int, int>>> q;
+    
+    q.push({root, {0, 0}});
+    int mini = INT_MAX;
+    int maxi = INT_MIN;
+    
+    while (!q.empty()) {
+        auto it = q.front();
+        q.pop();
+        TreeNode* t = it.first;
+        int lvl = it.second.first;
+        int hd = it.second.second;
+        
+        mp[hd].push_back({lvl, t->val});
+        mini = min(mini, hd);
+        maxi = max(maxi, hd);
+        
+        if (t->left) q.push({t->left, {lvl + 1, hd - 1}});
+        if (t->right) q.push({t->right, {lvl + 1, hd + 1}});
     }
+    
+    for (int i = mini; i <= maxi; ++i) {
+        vector<pair<int, int>>& nodes = mp[i];
+        sort(nodes.begin(), nodes.end());
+        vector<int> col;
+        for (auto& p : nodes) {
+            col.push_back(p.second);
+        }
+        ans.push_back(col);
+    }
+    
+    return ans;
+}
 };
